@@ -1,0 +1,1 @@
+# Lesson on luminosity and data quality
