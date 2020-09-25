@@ -24,7 +24,7 @@ keypoints:
 
 ## Luminosity and its importance
 
-The luminosity of a collider is the number of collisions per area per time. The typical unit is $$ \mathrm{cm^2 s^{-1}} $$. This luminosity is sometimes referred to
+The luminosity of a collider is the number of collisions per area (i.e. cross section) per time. The typical unit is $$ \mathrm{cm^2 s^{-1}} $$. This luminosity is sometimes referred to
 as the "instantaneous" luminosity $$ \mathcal{L}_{inst} $$. The "integrated" luminosity is the integral of the instantaneous luminosity over time:
 
 $$ \mathcal{L}_{int} = \int \mathcal{L}_{inst} dt $$
@@ -35,27 +35,22 @@ The importance of knowing the integrated luminosity cannot be overstated. It is 
 the Standard Model. You can't determine well how much you see (or don't see) coming out of the collisions if you don't know accurately and precisely what came in.
 
 ## Measuring luminosity
-The readout rate of quantities like hits in a detector is given by $$ R $$ and is equal to the product of the
-instantaneous luminosity $$ \mathcal{L}_{inst} $$ and the visible cross section $$ \sigma_{vis} $$:
+CMS has several systems for measuring luminosity including making use of the hadronic forward calorimeter and the pixel detector. There have also been several dedicated luminometers installed over the course of operation of CMS.
+
+The readout rate of quantities like hits in a detector (like a luminometer) is given by $$ R $$ and is given by the product of the instantaneous luminosity $$ \mathcal{L}_{inst} $$ and the visible cross section $$ \sigma_{vis} $$:
 
 $$ R = \mathcal{L}_{inst} \sigma_{vis}$$
 
-There are several detector systems in CMS that are luminometers: devices that measure luminosity.
-From these devices one obtains $$ R $$.
+The determination of $$ \sigma_{vis} $$ is carried out in so-called van der Meer (VdM) scans. In these scans the two colliding beams are separated and then moved across each other.
+The rate $$ R $$ is then determined as a function of beam separation to measure the beam overlap width.
 
-The determination of $$ \sigma_{vis} $$ is carried out in so-called van der Meer (VdM) scans. In these scans the two
-colliding beams are separated and then moved across each other.
-The rate $$ R $$ is then determined as a function of this beam separation. The instantaneous luminosity for
-a single colliding bunch $$ i, \mathcal{L}^{i}_{inst} $$ can then be determined knowing $$ R $$ as a function of beam separation and from
-known beam parameters such as the number of protons in each colliding bunch for each beam and the LHC orbit frequency.
-Then a value for $$ \sigma_{vis} $$ can be obtained using the above equation.
+The instantaneous luminosity $$ \mathcal{L}^{i}_{inst} $$ for
+a single colliding bunch $$ i $$ can be determined from the beam overlap width and
+known beam parameters such as the number of protons in each colliding bunch for each beam and the LHC orbit frequency. Then a value for $$ \sigma_{vis} $$ can be obtained.
 
-A VdM scan is a special beam condition but this value of $$ \sigma_{vis} $$ still holds for regular colliding beam conditions
-(since the detector acceptance has in-principle not changed). Therefore this value along with $$ R $$ can be used to subsequently
-determine $$ \mathcal{L}_{inst} $$.
+A VdM scan is a special beam condition but this value of $$ \sigma_{vis} $$ still holds for regular colliding beam conditions (since the detector acceptance has in-principle not changed). Therefore this value along with $$ R $$ can be used to subsequently determine $$ \mathcal{L}_{inst} $$.
 
-In-practice the performance of the luminometers can degrade over time due to effects such as radiation damage. CMS is capable of
-conducting fast luminosity scans with small beam separation, so-called "emmittance scans". These scans, performed similarly to VdM scans,
+In practice the performance of the luminometers can degrade over time due to effects such as radiation damage. CMS is capable of conducting fast luminosity scans with small beam separation, so-called "emmittance scans". These scans, performed similarly to VdM scans,
 can take just a few minutes and are typically performed at the beginning and at the end of a fill.
 
 {% include links.md %}
