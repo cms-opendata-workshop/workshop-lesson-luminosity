@@ -1,13 +1,15 @@
 ---
 title: "Calculating luminosity"
-teaching: 10
+teaching: 15
 exercises: 10
 questions:
 - "How do I calculate luminosity?"
+- "How do I calculate luminosity for only 'good' data?"
 objectives:
-- "Know how to calculate luminosity"
+- "Know how to calculate luminosity and understand how to do this for only 'good' data"
 keypoints:
 - "One can calculate luminosity offline using the `brilcalc` tool"
+- "By using the lists of validated runs one can calculate luminosity for data which is certified as 'good for physics'"
 ---
 > ## Important note
 > It is important that you use the `-c web` option when running `brilcalc`.
@@ -38,7 +40,9 @@ keypoints:
 
 ## Calculating luminosity for a particular run
 Let's calculate the integrated luminosity for a particular run found in the CMS Open Data.
-> brilcalc lumi -c web -r 160431
+~~~
+brilcalc lumi -c web -r 160431
+~~~
 {: .bash}
 ~~~
 #Data tag : 19v3 , Norm tag: onlineresult
@@ -57,7 +61,7 @@ Let's calculate the integrated luminosity for a particular run found in the CMS 
 {: .output}
 
 
-## Luminosity and certified data
+## Luminosity and validated data
 During data talking only those runs in which all the subdetectors, triggers, luminosity, and physics objets are found to be performing as expected
 are certified as "good for physics". For the physics analyst the list of certified luminosity sections in these runs is provided in the form of a
 JSON file. To ensure that we are calculating the luminosity for certified data one must fetch these files and pass them to `brilcalc` on the command line.
@@ -95,12 +99,33 @@ With a summary at the end of the file:
 +-------+------+--------+--------+-------------------+------------------+
 ~~~
 {: .output}
+You may notice at the end of the output luminosity sections that are listed in the json quality file but do not have any luminosity values corresponding to them. These correspond to sections that are left-overs at the end of a run, which where still tagged as STABLE RUN, but actually did not provide any luminosity. These are safe to ignore as they do not contain any events.
 
 > ## Note
 > Information on the validated runs for CMS Open Data can be found on the [CERN Open Data Portal](http://opendata.cern.ch/)
 > using [this search](http://opendata.cern.ch/search?page=1&size=20&q=&experiment=CMS&subtype=Validation&type=Supplementaries&type=Environment).
 {: .callout}
 
+> ## Validated data `json` files
+> The files used here are the same `json` (Javascrip Object Notation) files used in the `python` configuration files as in the [CMSSW lesson](https://cms-opendata-workshop.github.io/workshop-lesson-cmssw/). They are included in the `python` like so:
+> ~~~
+> import FWCore.PythonUtilities.LumiList as LumiList
+> goodJSON = 'Cert_160404-180252_7TeV_ReRecoNov08_Collisions11_JSON.txt'
+> myLumis = LumiList.LumiList(filename = goodJSON).getCMSSWString().split(',')
+>
+> # your process.source defined
+>
+> process.source.lumisToProcess = cms.untracked.VLuminosityBlockRange()
+> process.source.lumisToProcess.extend(myLumis)
+> ~~~
+> {: .language-python}
+> What's in the file? Example content looks like this:
+> ~~~
+> {"160431": [[19, 218]], "160577": [[254, 306]], "160578": [[6, 53], [274, 400]]
+> ~~~
+> {: .output}
+> Which says, for example, that luminosity sections 19-218 in run 160431 are certified as valid and "good for physics".
+{: .callout}
 
 > ## Luminosity over a range of runs
 > Using the `brilcalc lumi --help` and the information found  from [this page](http://opendata-dev.web.cern.ch/record/1001) on the CERN Open Data Portal, how does one calculate the
