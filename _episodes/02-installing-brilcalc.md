@@ -11,10 +11,6 @@ objectives:
 keypoints:
 - "`brilcalc` is a command-line tool provided by the CMS BRIL group for calculating luminosity"
 ---
-> ## Helpline
->
-> Remember that we are always available to help.  Our [Mattermost][mattermost] channel is open.
-{: .callout}
 
 The CMS Beam Radiation Instrumentation and Luminosity (BRIL) group provides a command-line tool called `brilcalc`.
 With `brilcalc` one can calculate luminosity.

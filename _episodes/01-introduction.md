@@ -17,10 +17,6 @@ keypoints:
 - "Knowing the luminosity is important to determining and measuring accelerator and detector performance and operation. It is also an essential component for measuring cross sections and for setting limits on beyond-SM processes."
 - "Measurement of luminosity is done with several systems in the detector."
 ---
-> ## Helpline
->
-> Remember that we are always available to help.  Our [Mattermost][mattermost] channel is open.
-{: .callout}
 
 ## Luminosity and its importance
 

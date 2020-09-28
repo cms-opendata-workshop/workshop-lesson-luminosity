@@ -9,18 +9,13 @@ objectives:
 keypoints:
 - "One can calculate luminosity offline using the `brilcalc` tool"
 ---
-> ## Helpline
->
-> Remember that we are always available to help.  Our [Mattermost][mattermost] channel is open.
-{: .callout}
-
-> **NOTE:**
+> ## Important note
 > It is important that you use the `-c web` option when running `brilcalc`.
 > This specifies that you use indirect access to BRIL servers via web cache.
 > For users of CMS open data outside CERN and CMS this is the only option that will work.
-{: .testimonial}
+{: .callout}
 
-> **NOTE:**
+> ## Important note
 > There is a useful help option for `brilcalc` and its commands:
 > ~~~
 > brilcalc --help
@@ -39,7 +34,7 @@ keypoints:
 > ~~~
 > {: .output}
 > Of particular use will be the `brilcalc lumi` command.
-{: .testimonial}
+{: .callout}
 
 ## Calculating luminosity for a particular run
 Let's calculate the integrated luminosity for a particular run found in the CMS Open Data.
@@ -101,10 +96,10 @@ With a summary at the end of the file:
 ~~~
 {: .output}
 
-> **NOTE**
+> ## Note
 > Information on the validated runs for CMS Open Data can be found on the [CERN Open Data Portal](http://opendata.cern.ch/)
 > using [this search](http://opendata.cern.ch/search?page=1&size=20&q=&experiment=CMS&subtype=Validation&type=Supplementaries&type=Environment).
-{: .testimonial}
+{: .callout}
 
 
 > ## Luminosity over a range of runs
@@ -112,10 +107,11 @@ With a summary at the end of the file:
 > integrated luminosity for certified lumi sections for RunA of the 2011 data release?
 >> ## Solution
 >> RunA of 2011 proton-proton data comprises runs 160431 to 173692 (inclusive) so to calculate the integrated luminosity for this era run the command (where we pipe the output to a text file):
+>> ~~~
 >>> brilcalc lumi -c web --begin 160431 --end 173692 -i Cert_160404-180252_7TeV_ReRecoNov08_Collisions11_JSON.txt > RunA2011lumi.txt
+>> ~~~
 >> {: .bash}
->>>  **NOTE** The range of runs for a primary dataset can be found from the primary dataset record page, for example [here](http://opendata.cern.ch/record/272) for the `DoubleMu` primary dataset from RunB of 2011.
->> {: .testimonial}
+>> The range of runs for a primary dataset can be found from the primary dataset record page, for example [here](http://opendata.cern.ch/record/272) for the `DoubleMu` primary dataset from RunB of 2011.
 > {: .solution}
 {: .challenge}
 
@@ -125,7 +121,9 @@ With a summary at the end of the file:
 >
 > Hint: check out the options in `brilcalc lumi --help`
 >> ## Solution
+>> ~~~
 >>> brilcalc lumi --byls --output-style csv -c web -i Cert_160404-180252_7TeV_ReRecoNov08_Collisions11_JSON.txt > my2011lumibyls.csv
+>> ~~~
 >> {: .bash}
 >> The contents of your `csv` file will appear as below:
 >> ~~~
@@ -141,11 +139,14 @@ With a summary at the end of the file:
 >> 160431:1615,26:26,03/14/11 03:17:27,STABLE BEAMS,3500,39.874,39.874,3.4,hfoc
 >> ~~~
 >> {: .output}
->>> **NOTE** You may notice the `hfoc` in the `source` field. This indicates that the Hadron Forward Zero Counting value for luminosity was used.
->>> When available, more precise values can be obtained with the Pixel Luminosity Telescope, given by `pxl`. These values are preferred. You can select them
->>> using the `brilcalc lumi --type` option. For example: `brilcalc lumi -c web -r 208686 --type pxl`.
->> {: .testimonial}
+>> You may notice the `hfoc` in the `source` field. This indicates that the Hadron Forward Zero Counting value for luminosity was used.
+>> When available, more precise values can be obtained with the Pixel Luminosity Telescope, given by `pxl`. These values are preferred. You can select them
+>> using the `brilcalc lumi --type` option. For example: `brilcalc lumi -c web -r 208686 --type pxl`.
 > {: .solution}
 {: .challenge}
+
+> ## Further Information
+> More information can be found in the [Reference](../reference.html) section.
+{: .callout}
 
 {% include links.md %}
