@@ -1,7 +1,7 @@
 ---
 title: "Calculating luminosity"
 teaching: 10
-exercises: 5
+exercises: 10
 questions:
 - "How do I calculate luminosity?"
 objectives:
@@ -111,12 +111,29 @@ With a summary at the end of the file:
 > {: .solution}
 {: .challenge}
 
-> ## Select luminometer
+> ## Luminosity separated by luminosity sections
+> Calculate the luminosity for validated runs and luminosity sections, separated by luminosity sections,
+> outputting your results to a `csv` (comma-separated-variable) file.
 >
-{: .challenge}
-
-> ## Integrated luminosity for a HLT trigger path
->
+> Hint: check out the options in `brilcalc lumi --help`
+>> ## Solution
+>>> brilcalc lumi --byls --output-style csv -c web -i Cert_160404-180252_7TeV_ReRecoNov08_Collisions11_JSON.txt > my2011lumibyls.csv
+>> {: .bash}
+>> The contents of your `csv` file will appear as below:
+>> ~~~
+>>  #Data tag : v1 , Norm tag: None
+>> #run:fill,ls,time,beamstatus,E(GeV),delivered(/ub),recorded(/ub),avgpu,source
+>> 160431:1615,19:19,03/14/11 03:14:43,STABLE BEAMS,3500,39.312,39.312,3.4,hfoc
+>> 160431:1615,20:20,03/14/11 03:15:07,STABLE BEAMS,3500,39.368,39.368,3.4,hfoc
+>> 160431:1615,21:21,03/14/11 03:15:30,STABLE BEAMS,3500,39.305,39.305,3.4,hfoc
+>> 160431:1615,22:22,03/14/11 03:15:53,STABLE BEAMS,3500,35.843,35.843,3.1,hfoc
+>> 160431:1615,23:23,03/14/11 03:16:17,STABLE BEAMS,3500,37.093,37.093,3.2,hfoc
+>> 160431:1615,24:24,03/14/11 03:16:40,STABLE BEAMS,3500,39.620,39.620,3.4,hfoc
+>> 160431:1615,25:25,03/14/11 03:17:03,STABLE BEAMS,3500,34.396,34.396,3.0,hfoc
+>> 160431:1615,26:26,03/14/11 03:17:27,STABLE BEAMS,3500,39.874,39.874,3.4,hfoc
+>> ~~~
+>> {: .output}
+> {: .solution}
 {: .challenge}
 
 {% include links.md %}
