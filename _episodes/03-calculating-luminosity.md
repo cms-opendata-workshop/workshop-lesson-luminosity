@@ -65,7 +65,7 @@ Let's calculate the integrated luminosity for a particular run found in the CMS 
 ## Luminosity and certified data
 During data talking only those runs in which all the subdetectors, triggers, luminosity, and physics objets are found to be performing as expected
 are certified as "good for physics". For the physics analyst the list of certified luminosity sections in these runs is provided in the form of a
-JSON file. To ensure that we are calculating the luminosity for certified data one must fetch these files and pass them to `brilcalc` on the command > line.
+JSON file. To ensure that we are calculating the luminosity for certified data one must fetch these files and pass them to `brilcalc` on the command line.
 First let's fetch the JSON file for 2011 data:
 ~~~
 wget http://opendata.cern.ch/record/1001/files/Cert_160404-180252_7TeV_ReRecoNov08_Collisions11_JSON.txt
@@ -101,6 +101,12 @@ With a summary at the end of the file:
 ~~~
 {: .output}
 
+> **NOTE**
+> Information on the validated runs for CMS Open Data can be found on the [CERN Open Data Portal](http://opendata.cern.ch/)
+> using [this search](http://opendata.cern.ch/search?page=1&size=20&q=&experiment=CMS&subtype=Validation&type=Supplementaries&type=Environment).
+{: .testimonial}
+
+
 > ## Luminosity over a range of runs
 > Using the `brilcalc lumi --help` and the information found  from [this page](http://opendata-dev.web.cern.ch/record/1001) on the CERN Open Data Portal, how does one calculate the
 > integrated luminosity for certified lumi sections for RunA of the 2011 data release?
@@ -108,6 +114,8 @@ With a summary at the end of the file:
 >> RunA of 2011 proton-proton data comprises runs 160431 to 173692 (inclusive) so to calculate the integrated luminosity for this era run the command (where we pipe the output to a text file):
 >>> brilcalc lumi -c web --begin 160431 --end 173692 -i Cert_160404-180252_7TeV_ReRecoNov08_Collisions11_JSON.txt > RunA2011lumi.txt
 >> {: .bash}
+>>>  **NOTE** The range of runs for a primary dataset can be found from the primary dataset record page, for example [here](http://opendata.cern.ch/record/272) for the `DoubleMu` primary dataset from RunB of 2011.
+>> {: .testimonial}
 > {: .solution}
 {: .challenge}
 
@@ -133,6 +141,10 @@ With a summary at the end of the file:
 >> 160431:1615,26:26,03/14/11 03:17:27,STABLE BEAMS,3500,39.874,39.874,3.4,hfoc
 >> ~~~
 >> {: .output}
+>>> **NOTE** You may notice the `hfoc` in the `source` field. This indicates that the Hadron Forward Zero Counting value for luminosity was used.
+>>> When available, more precise values can be obtained with the Pixel Luminosity Telescope, given by `pxl`. These values are preferred. You can select them
+>>> using the `brilcalc lumi --type` option. For example: `brilcalc lumi -c web -r 208686 --type pxl`.
+>> {: .testimonial}
 > {: .solution}
 {: .challenge}
 
