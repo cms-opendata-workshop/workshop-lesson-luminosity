@@ -62,7 +62,7 @@ brilcalc lumi -c web -r 160431
 
 
 ## Luminosity and validated data
-During data talking only those runs in which all the subdetectors, triggers, luminosity, and physics objets are found to be performing as expected
+During data taking only those runs in which all the subdetectors, triggers, luminosity, and physics objects are found to be performing as expected
 are certified as "good for physics". For the physics analyst the list of certified luminosity sections in these runs is provided in the form of a
 JSON (JavaScript Object Notation) file. To ensure that we are calculating the luminosity for certified data one must fetch these files and pass them to `brilcalc` on the command line.
 First let's fetch the JSON file for 2011 data:
@@ -99,7 +99,7 @@ With a summary at the end of the file:
 +-------+------+--------+--------+-------------------+------------------+
 ~~~
 {: .output}
-You may notice at the end of the output luminosity sections that are listed in the JSON quality file but do not have any luminosity values corresponding to them. These correspond to sections that are left-overs at the end of a run, which where still tagged as STABLE RUN, but actually did not provide any luminosity. These are safe to ignore as they do not contain any events.
+You may notice at the end of the output after the summary a list of runs and lumi sections. These are runs and lumi sections that are listed in the JSON quality file but do not have any luminosity values corresponding to them. These correspond to sections that are left-overs at the end of a run, which where still tagged as STABLE RUN, but actually did not provide any luminosity. These are safe to ignore as they do not contain any events.
 
 > ## Note
 > Information on the validated runs for CMS Open Data can be found on the [CERN Open Data Portal](http://opendata.cern.ch/)
