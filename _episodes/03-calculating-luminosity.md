@@ -64,7 +64,7 @@ brilcalc lumi -c web -r 160431
 ## Luminosity and validated data
 During data talking only those runs in which all the subdetectors, triggers, luminosity, and physics objets are found to be performing as expected
 are certified as "good for physics". For the physics analyst the list of certified luminosity sections in these runs is provided in the form of a
-JSON file. To ensure that we are calculating the luminosity for certified data one must fetch these files and pass them to `brilcalc` on the command line.
+JSON (JavaScript Object Notation) file. To ensure that we are calculating the luminosity for certified data one must fetch these files and pass them to `brilcalc` on the command line.
 First let's fetch the JSON file for 2011 data:
 ~~~
 wget http://opendata.cern.ch/record/1001/files/Cert_160404-180252_7TeV_ReRecoNov08_Collisions11_JSON.txt
@@ -99,15 +99,15 @@ With a summary at the end of the file:
 +-------+------+--------+--------+-------------------+------------------+
 ~~~
 {: .output}
-You may notice at the end of the output luminosity sections that are listed in the json quality file but do not have any luminosity values corresponding to them. These correspond to sections that are left-overs at the end of a run, which where still tagged as STABLE RUN, but actually did not provide any luminosity. These are safe to ignore as they do not contain any events.
+You may notice at the end of the output luminosity sections that are listed in the JSON quality file but do not have any luminosity values corresponding to them. These correspond to sections that are left-overs at the end of a run, which where still tagged as STABLE RUN, but actually did not provide any luminosity. These are safe to ignore as they do not contain any events.
 
 > ## Note
 > Information on the validated runs for CMS Open Data can be found on the [CERN Open Data Portal](http://opendata.cern.ch/)
 > using [this search](http://opendata.cern.ch/search?page=1&size=20&q=&experiment=CMS&subtype=Validation&type=Supplementaries&type=Environment).
 {: .callout}
 
-> ## Validated data `json` files
-> The files used here are the same `json` (Javascrip Object Notation) files used in the `python` configuration files as in the [CMSSW lesson](https://cms-opendata-workshop.github.io/workshop-lesson-cmssw/). They are included in the `python` like so:
+> ## Validated data JSON files
+> The files used here are the same JSON files used in the `python` configuration files as in the [CMSSW lesson](https://cms-opendata-workshop.github.io/workshop-lesson-cmssw/). They are included in the `python` like so:
 > ~~~
 > import FWCore.PythonUtilities.LumiList as LumiList
 > goodJSON = 'Cert_160404-180252_7TeV_ReRecoNov08_Collisions11_JSON.txt'
