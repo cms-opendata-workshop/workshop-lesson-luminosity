@@ -20,7 +20,7 @@ keypoints:
 
 ## Luminosity and its importance
 
-The luminosity of a collider is the number of collisions per area (i.e. cross section) per time. The typical unit is $$ \mathrm{cm^2 s^{-1}} $$. This luminosity is sometimes referred to
+The luminosity of a collider is the number of collisions per area (i.e. cross section) per time. The typical unit is $$ \mathrm{cm^{-2} s^{-1}} $$. This luminosity is sometimes referred to
 as the "instantaneous" luminosity $$ \mathcal{L}_{inst} $$. The "integrated" luminosity is the integral of the instantaneous luminosity over time:
 
 $$ \mathcal{L}_{int} = \int \mathcal{L}_{inst} dt $$
